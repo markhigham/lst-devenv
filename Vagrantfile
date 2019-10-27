@@ -15,6 +15,8 @@ Vagrant.configure("2") do |config|
   # MAKE SURE YOU HAVE INSTALLED THE docker-compose PLUGIN!
   # vagrant plugin install vagrant-docker-compose
   
+  config.vm.synced_folder "./app", "/app"
+  
   config.vm.provision :docker_compose
   config.vm.provision "shell", inline: <<-SHELL
     apt update
